@@ -1,0 +1,4 @@
+../Core/Src/POLL.c:21:6:Boom1_Status	9
+../Core/Src/POLL.c:54:6:Boom2_Status	9
+../Core/Src/POLL.c:87:6:UP_Train_Status	5
+../Core/Src/POLL.c:113:6:DOWN_Train_Status	5

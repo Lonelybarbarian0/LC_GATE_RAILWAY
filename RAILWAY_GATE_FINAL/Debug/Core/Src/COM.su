@@ -1,0 +1,2 @@
+../Core/Src/COM.c:26:6:Transmit_Msg	8	static
+../Core/Src/COM.c:51:6:Receive_Msg	8	static
