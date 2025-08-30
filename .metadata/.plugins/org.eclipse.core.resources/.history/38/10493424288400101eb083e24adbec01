@@ -1,0 +1,13 @@
+/*
+ * COM.h
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+#ifndef INC_COM_H_
+#define INC_COM_H_
+
+#endif /* INC_COM_H_ */
+
+#include "main.h"

@@ -1,0 +1,24 @@
+/*
+ * TF02.c
+ *
+ *  Created on: Aug 22, 2025
+ *      Author: kailas
+ */
+
+#include "TF02.h"
+
+
+
+uint16_t TF02_Get_Dist(UART_HandleTypeDef *UART_BUS)
+{
+	uint8_t data[8];
+
+	if(HAL_UART_Receive(UART_BUS,(uint8_t*)data, 8, HAL_MAX_DELAY))
+	{
+		if (data[1] == 0x59 && data[2] == 0x59)
+		{
+			return data[3] | (data[4] >> 8);
+		}
+	}
+	else return 0xFFFF;
+}

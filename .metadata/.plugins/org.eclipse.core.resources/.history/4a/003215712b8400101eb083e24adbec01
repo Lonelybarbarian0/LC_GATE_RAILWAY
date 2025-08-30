@@ -1,0 +1,15 @@
+/*
+ * POLL.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+#include "POLL.h"
+
+extern uint8_t tx_buff[10];
+
+void Boom1_Status()
+{
+	if(HAL_GPIO_ReadPin(BOOM1_LS11_GPIO_Port, BOOM1_LS11_GPIO_PIN));
+}

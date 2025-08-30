@@ -1,0 +1,19 @@
+/*
+ * ACT.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+
+#include "ACT.h"
+
+extern uint8_t temp_rx_buff[2];
+
+void Lever_Lock()
+{
+	if(temp_rx_buff[0] == 0x01)
+	{
+		HAL_GPIO_WritePin(LT_GPIO_Port, LT_Pin, GPIO_PIN_SET);
+	}
+}

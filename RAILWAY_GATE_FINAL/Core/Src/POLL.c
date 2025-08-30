@@ -86,21 +86,32 @@ void Boom2_Status()
   */
 void UP_Train_Status()
 {
-	volatile uint16_t data1 = {0xFFFF};
-	volatile uint16_t data2 = {0xFFFF};
+	volatile uint16_t data1[5] = {0xFFFF};
+	volatile uint16_t data2[5] = {0xFFFF};
 
-    data1 = TF02_Get_Dist(&huart1);
-    data2 = TF02_Get_Dist(&huart2);
+	for(uint8_t i=0;i<5;i++)
+	{
+	    data1[i] = TF02_Get_Dist(&huart1);
+	    data2[i] = TF02_Get_Dist(&huart3);
+	}
 
-    if( (data1 == 0xFFFF) || (data2 == 0xFFFF) )
+
+    if( ((data1[0] == 0xFFFF) && (data1[1] == 0xFFFF) && (data1[2] == 0xFFFF) && (data1[3] == 0xFFFF) && (data1[4] == 0xFFFF))
+     || ((data2[0] == 0xFFFF) && (data2[1] == 0xFFFF) && (data2[2] == 0xFFFF) && (data2[3] == 0xFFFF) && (data2[4] == 0xFFFF)) )
     {
     	temp_tx_buff[2] = 0xFF; /* Sensor Error */
     }
-    else if( (data1 <= TRAIN_DIST) && (data2 <= TRAIN_DIST) )
-    {
-    	temp_tx_buff[2] = 0x01; /* Train Detected */
-    }
-    else temp_tx_buff[2] = 0x00; /* No Train Detected */
+   if((data1[4] != 0xFFFF) && (data2[4] != 0xFFFF))
+   {
+	   if(data1[4] <= TRAIN_DIST && data2[4] <= TRAIN_DIST)
+	   {
+		   temp_tx_buff[2] = 0x01;  /* Train Detected */
+	   }
+	   else if (data1[4] >= TRAIN_DIST && data2[4] >= TRAIN_DIST)
+	   {
+		   temp_tx_buff[2] = 0x00;  /* No Train Detected */
+	   }
+   }
 
 }
 
@@ -112,21 +123,31 @@ void UP_Train_Status()
   */
 void DOWN_Train_Status()
 {
-	volatile uint16_t data3 = {0xFFFF};
-	volatile uint16_t data4 = {0xFFFF};
+	volatile uint16_t data3[5] = {0xFFFF};
+	volatile uint16_t data4[5] = {0xFFFF};
 
-    data3 = TF02_Get_Dist(&huart3);
-    data4 = TF02_Get_Dist(&huart4);
+	for(uint8_t i=0;i<5;i++)
+	{
+	    data3[i] = TF02_Get_Dist(&huart3);
+	    data4[i] = TF02_Get_Dist(&huart4);
+	}
 
-    if( (data3 == 0xFFFF) || (data4 == 0xFFFF) )
+    if( ((data3[0] == 0xFFFF) && (data3[1] == 0xFFFF) && (data3[2] == 0xFFFF) && (data3[3] == 0xFFFF) && (data3[4] == 0xFFFF))
+     || ((data4[0] == 0xFFFF) && (data4[1] == 0xFFFF) && (data4[2] == 0xFFFF) && (data4[3] == 0xFFFF) && (data4[4] == 0xFFFF)) )
     {
     	temp_tx_buff[3] = 0xFF; /* Sensor Error */
     }
-    else if( (data3 <= TRAIN_DIST) && (data4 <= TRAIN_DIST) )
+    if((data3[4] != 0xFFFF) && (data4[4] != 0xFFFF))
     {
-    	temp_tx_buff[3] = 0x01; /* Train Detected */
+ 	   if(data3[4] <= TRAIN_DIST && data4[4] <= TRAIN_DIST)
+ 	   {
+ 		   temp_tx_buff[3] = 0x01;  /* Train Detected */
+ 	   }
+ 	   else if (data3[4] >= TRAIN_DIST && data4[4] >= TRAIN_DIST)
+ 	   {
+ 		   temp_tx_buff[3] = 0x00;  /* No Train Detected */
+ 	   }
     }
-    else temp_tx_buff[3] = 0x00; /* No Train Detected */
 
 }
 

@@ -1,0 +1,34 @@
+/*
+ * CDH.c
+ *
+ *  Created on: Aug 22, 2025
+ *      Author: kailas
+ */
+
+#include "CDH.h"
+
+uint8_t CDC_TX_MSG [10] = {0};
+uint8_t CDC_RX_MSG [5]  = {0};
+
+void Train_status_update();
+void Boom_status_update()
+{
+	//BOOM1 UP/DOWN - Status
+	if( (HAL_GPIO_ReadPin(BOOM1_LS1_GPIO_Port, BOOM1_LS1_Pin) == GPIO_PIN_SET) &&
+	    (HAL_GPIO_ReadPin(BOOM1_LS2_GPIO_Port, BOOM1_LS2_Pin) == GPIO_PIN_SET){
+
+	}
+}
+void Lock_status_update();
+void Alarm_status_update();
+
+void Trigger_lock();
+void Trigger_alarm();
+void Send_data();
+
+void Transmit_Data_Handler();
+void Receive_Data_Handler();
+
+void Transmit_CDC();
+void Receive_CDC();
+

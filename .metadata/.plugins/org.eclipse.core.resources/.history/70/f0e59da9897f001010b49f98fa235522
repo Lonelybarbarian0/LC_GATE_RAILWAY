@@ -1,0 +1,115 @@
+/*
+ * CDH.c
+ *
+ *  Created on: Aug 22, 2025
+ *      Author: kailas
+ */
+
+#include "CDH.h"
+
+uint8_t CDC_TX_MSG [10] = {0xFF};
+uint8_t CDC_RX_MSG [5]  = {0xFF};
+uint8_t buff_status[2] = {0x00}; //buff_status[0] - For lock , buff_status[1] - For Alarm
+
+//Response
+void Train_status_update();
+void Boom_status_update()
+{
+	/* BOOM 1 UP/DOWN - Status */
+	if( (HAL_GPIO_ReadPin(BOOM1_LS1_GPIO_Port, BOOM1_LS1_Pin) == GPIO_PIN_SET) &&
+	    (HAL_GPIO_ReadPin(BOOM1_LS2_GPIO_Port, BOOM1_LS2_Pin) == GPIO_PIN_SET) )
+	{
+		CDC_TX_MSG[4] = 0x01; /* BOOM 1 UP */
+	}
+
+	else if ((HAL_GPIO_ReadPin(BOOM1_LS1_GPIO_Port, BOOM1_LS1_Pin) == GPIO_PIN_RESET) &&
+		    (HAL_GPIO_ReadPin(BOOM1_LS2_GPIO_Port, BOOM1_LS2_Pin) == GPIO_PIN_RESET) )
+	{
+		CDC_TX_MSG[4] = 0x00; /* BOOM 1 DOWN */
+	}
+	else CDC_TX_MSG[4] = 0xFF; /* ERROR */
+
+	/* BOOM 2 UP/DOWN - Status */
+	if( (HAL_GPIO_ReadPin(BOOM2_LS1_GPIO_Port, BOOM2_LS1_Pin) == GPIO_PIN_SET) &&
+	    (HAL_GPIO_ReadPin(BOOM2_LS2_GPIO_Port, BOOM2_LS2_Pin) == GPIO_PIN_SET) )
+	{
+		CDC_TX_MSG[5] = 0x01; /* BOOM 2 UP */
+	}
+
+	else if ((HAL_GPIO_ReadPin(BOOM2_LS1_GPIO_Port, BOOM2_LS1_Pin) == GPIO_PIN_RESET) &&
+		    (HAL_GPIO_ReadPin(BOOM2_LS2_GPIO_Port, BOOM2_LS2_Pin) == GPIO_PIN_RESET) )
+	{
+		CDC_TX_MSG[5] = 0x00; /* BOOM 2 DOWN */
+	}
+	else CDC_TX_MSG[5] = 0xFF; /* ERROR */
+
+	/* BOOM 1 Health Status */
+	if(HAL_GPIO_ReadPin(BOOM1_H_GPIO_Port, BOOM1_H_GPIO_Pin))
+}
+
+void Lock_status_update()
+{
+	/* Lock status Update */
+	if(buff_status[0] == 0x01)
+	{
+		CDC_TX_MSG[8] = 0x01; /* Locked Status*/
+	}
+	else if(buff_status[0] == 0x00)
+	{
+		CDC_TX_MSG[8] = 0x00; /* Unlocked Status */
+	}
+	else CDC_TX_MSG[8] = 0xFF; /* ERROR */
+}
+
+void Alarm_status_update()
+{
+	/* Alarm status Update */
+	if(buff_status[1] == 0x01) /* Turned ON */
+	{
+		CDC_TX_MSG[9] = 0x01;
+	}
+	else if(buff_status[1] == 0x00) /* Turned OFF */
+	{
+		CDC_TX_MSG[9] = 0x00;
+	}
+}
+
+
+// Action
+void Trigger_lock()
+{
+	/* To Lock/Unlock the lever */
+
+	if(buff_status[0] == 0x01) /* Lock */
+	{
+		HAL_GPIO_WritePin(Lever_Lock_GPIO_Port, Lever_Lock_Pin, GPIO_PIN_SET);
+	}
+	else if(buff_status[0] == 0x00) /* UNLOCK */
+	{
+		HAL_GPIO_WritePin(Lever_Lock_GPIO_Port, Lever_Lock_Pin, GPIO_PIN_RESET);
+	}
+}
+
+void Trigger_alarm()
+{
+	/* TO Turn ON/OFF Alarm */
+	if(buff_status[1] == 0x01) /* Turn ON */
+	{
+		HAL_GPIO_WritePin(Alarm_Trigger_GPIO_Port, Alarm_Trigger_Pin, GPIO_PIN_SET);
+	}
+	else if(buff_status[1] == 0x00) /* Turn OFF */
+	{
+		HAL_GPIO_WritePin(Alarm_Trigger_GPIO_Port, Alarm_Trigger_Pin, GPIO_PIN_RESET);
+	}
+}
+
+void Send_data();
+
+//Handlers
+void Transmit_Data_Handler();
+void Receive_Data_Handler();
+
+//Comm
+void Transmit_CDC();
+void Receive_CDC();
+

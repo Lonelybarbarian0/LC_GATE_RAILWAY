@@ -1,0 +1,17 @@
+21:36:12 **** Incremental Build of configuration Debug for project RAILWAY_GATE_FINAL ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "RAILWAY_GATE_FINAL.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RAILWAY_GATE_FINAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RAILWAY_GATE_FINAL.elf
+ 
+arm-none-eabi-size  RAILWAY_GATE_FINAL.elf 
+arm-none-eabi-objdump -h -S RAILWAY_GATE_FINAL.elf  > "RAILWAY_GATE_FINAL.list"
+   text	   data	    bss	    dec	    hex	filename
+  40328	    284	   9164	  49776	   c270	RAILWAY_GATE_FINAL.elf
+Finished building: default.size.stdout
+ 
+Finished building: RAILWAY_GATE_FINAL.list
+ 
+
+21:36:13 Build Finished. 0 errors, 0 warnings. (took 936ms)
+

@@ -1,0 +1,21 @@
+/*
+ * WRAPPRER.h
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+#ifndef INC_WRAPPRER_H_
+#define INC_WRAPPRER_H_
+
+#endif /* INC_WRAPPRER_H_ */
+
+#include "main.h"
+#include "POLL.h"
+#include "COM.h"
+#include "ACT.h"
+
+extern uint8_t tx_buff[10];
+extern uint8_t temp_tx_buff[10];
+
+

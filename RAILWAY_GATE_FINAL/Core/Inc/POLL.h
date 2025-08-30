@@ -16,7 +16,7 @@
 #include "TF02.h"
 #include "COM.h"
 
-#define TRAIN_DIST 300
+#define TRAIN_DIST 50
 
 extern UART_HandleTypeDef huart4;
 extern UART_HandleTypeDef huart1;

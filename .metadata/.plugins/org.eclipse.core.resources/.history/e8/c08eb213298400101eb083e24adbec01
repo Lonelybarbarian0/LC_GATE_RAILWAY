@@ -1,0 +1,9 @@
+/*
+ * COM.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+uint8_t rx_buff[10] = {0};
+

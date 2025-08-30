@@ -1,0 +1,63 @@
+/*
+ * COM.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+/* Includes Begin */
+#include "COM.h"
+/* Includes END */
+
+/* Variable Declarations Begin */
+volatile uint8_t rx_buff[5] = {0}; /* Received Message */
+volatile uint8_t temp_rx_buff[2] = {0xFF}; /* [0] -> Lever Lock Instr | [1] -> Alarm Lock Instr */
+volatile uint8_t tx_buff[10] = {0}; /* Transmitted Message */
+volatile uint8_t temp_tx_buff[10] = {0x55}; /* Transmitting Message */
+/* Variable Declarations END */
+
+/* Function Def Begin */
+
+/**
+  * @brief  Transmits the data via USB_VCP after parsing the tx_buff[]
+  *         Total 10 bytes of data...
+  * @param  None
+  * @retval None
+  */
+void Transmit_Msg()
+{
+	tx_buff[0] = 0x55;            /* Header */
+	tx_buff[1] = 0x55;            /* Header */
+
+	tx_buff[2] = temp_tx_buff[2];    /* Train UP */
+	tx_buff[3] = temp_tx_buff[3];    /* Train DOWN */
+
+	tx_buff[4] = temp_tx_buff[4];    /* BOOM 1 STATUS */
+	tx_buff[5] = temp_tx_buff[5];    /* BOOM 2 STATUS */
+
+	tx_buff[6] = temp_tx_buff[6];    /* BOOM 1 HEALTH */
+	tx_buff[7] = temp_tx_buff[7];    /* BOOM 2 HEALTH */
+
+	tx_buff[8] = 0xFF;            /* Lever Lock Status */
+	tx_buff[9] = 0xFF;            /* Alarm Status */
+
+	CDC_Transmit_FS((uint8_t*)tx_buff,10);
+}
+
+/**
+  * @brief  Reads the recieved buffer from USC VCP
+  * @param  NONE
+  * @retval NONE
+  */
+void Receive_Msg()
+{
+	if( (rx_buff[0] == 0x59) && (rx_buff[1] == 0x59))
+	{
+		temp_rx_buff[0] = rx_buff[2];
+		temp_rx_buff[1] = rx_buff[3];
+		if(rx_buff[4] == 0x01)
+		{
+			Transmit_Msg();
+			rx_buff[4] = 0xFF;
+		}
+	}
+}
