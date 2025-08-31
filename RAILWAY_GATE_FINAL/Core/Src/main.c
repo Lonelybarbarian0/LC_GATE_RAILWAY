@@ -123,8 +123,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  Start_Polling();  //Starts Polling Boom status along with Train passing and save the status
-	  Send_If_Change();  //If any change is detected with the Previous state of any Boom or Train pass tx is enabled
+	  Start_Polling();    //Starts Polling Boom status along with Train passing and save the status
+	  Send_If_Change();   //If any change is detected with the Previous state of any Boom or Train pass tx is enabled
 	  Receive_Handler();  //Used to Trigger lever lock and alarm based on rx data
 
 //	  uint16_t dist1 = TF02_Get_Dist(&huart1);
@@ -448,53 +448,47 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(AT1_GPIO_Port, AT1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, Alarm_Trigger1_Pin|Alarm_Trigger2_Pin|Lock_Trigger_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, AT_Pin|LT_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : BOOM1_LS22_Pin BOOM1_LS11_Pin BOOM1_LS12_Pin */
-  GPIO_InitStruct.Pin = BOOM1_LS22_Pin|BOOM1_LS11_Pin|BOOM1_LS12_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  /*Configure GPIO pins : Alarm_Trigger1_Pin Alarm_Trigger2_Pin Lock_Trigger_Pin */
+  GPIO_InitStruct.Pin = Alarm_Trigger1_Pin|Alarm_Trigger2_Pin|Lock_Trigger_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BOOM2_LS22_Pin BOOM2_LS11_Pin BOOM2_LS12_Pin BOOM2_LS21_Pin
-                           BOOM1_LS21_Pin */
-  GPIO_InitStruct.Pin = BOOM2_LS22_Pin|BOOM2_LS11_Pin|BOOM2_LS12_Pin|BOOM2_LS21_Pin
-                          |BOOM1_LS21_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pins : BOOM1_LS11_Pin BOOM1_LS12_Pin BOOM1_LS21_Pin BOOM1_LS22_Pin */
+  GPIO_InitStruct.Pin = BOOM1_LS11_Pin|BOOM1_LS12_Pin|BOOM1_LS21_Pin|BOOM1_LS22_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : AT1_Pin */
-  GPIO_InitStruct.Pin = AT1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(AT1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : AT_Pin LT_Pin */
-  GPIO_InitStruct.Pin = AT_Pin|LT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  /*Configure GPIO pins : BOOM2_LS11_Pin BOOM2_LS12_Pin BOOM2_LS21_Pin BOOM2_LS22_Pin */
+  GPIO_InitStruct.Pin = BOOM2_LS11_Pin|BOOM2_LS12_Pin|BOOM2_LS21_Pin|BOOM2_LS22_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : L_FB1_Pin */
-  GPIO_InitStruct.Pin = L_FB1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pins : Lock_Feedback1_Pin Lock_Feedback2_Pin */
+  GPIO_InitStruct.Pin = Lock_Feedback1_Pin|Lock_Feedback2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(L_FB1_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : L_FB2_Pin */
-  GPIO_InitStruct.Pin = L_FB2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(L_FB2_GPIO_Port, &GPIO_InitStruct);
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

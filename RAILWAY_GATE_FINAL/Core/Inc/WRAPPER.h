@@ -9,8 +9,10 @@
 #include "ACT.h"
 #include "usbd_cdc_if.h"
 
-extern volatile uint8_t tx_buff[10];
 extern TIM_HandleTypeDef htim1;
+extern volatile uint8_t temp_tx_buff[10];
+extern volatile uint8_t tx_buff[10];
+
 void Start_Polling();
 void Send_If_Change();
 void Receive_Handler();

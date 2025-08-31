@@ -14,8 +14,8 @@
 #endif /* INC_ACT_H_ */
 
 #include "main.h"
-
 extern volatile uint8_t temp_rx_buff[2];
+extern volatile uint8_t temp_tx_buff[10];
 
 void Lever_Lock();
 void Alarm_ON();

@@ -12,10 +12,8 @@
 volatile uint8_t rx_buff[5] = {0}; /* Received Message */
 volatile uint8_t temp_rx_buff[2] = {0xFF}; /* [0] -> Lever Lock Instr | [1] -> Alarm Lock Instr */
 volatile uint8_t tx_buff[10] = {0}; /* Transmitted Message */
-volatile uint8_t temp_tx_buff[10] = {0x55}; /* Transmitting Message */
+volatile uint8_t temp_tx_buff[10] = {0}; /* Transmitting Message */
 /* Variable Declarations END */
-
-/* Function Def Begin */
 
 /**
   * @brief  Transmits the data via USB_VCP after parsing the tx_buff[]
