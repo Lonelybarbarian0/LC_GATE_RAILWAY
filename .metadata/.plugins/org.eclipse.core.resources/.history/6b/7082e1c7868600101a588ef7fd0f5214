@@ -57,7 +57,10 @@ void Receive_Msg()
 
 		if(rx_buff[4] == 0x01)
 		{
+			HAL_TIM_Base_Stop_IT(&htim1); /* 15s Interrupt Timer Stop */
 			Transmit_Msg();
+			__HAL_TIM_SET_COUNTER(&htim1, 0);
+			HAL_TIM_Base_Start_IT(&htim1); /* 15s Interrupt Timer Start */
 			rx_buff[4] = 0xFF;
 		}
 	}

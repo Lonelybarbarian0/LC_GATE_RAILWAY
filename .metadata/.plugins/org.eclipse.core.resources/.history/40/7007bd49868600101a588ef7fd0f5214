@@ -52,9 +52,8 @@ void Receive_Msg()
 {
 	if( (rx_buff[0] == 0x59) && (rx_buff[1] == 0x59))
 	{
-		 temp_rx_buff[0] = rx_buff[2];
-		 temp_rx_buff[1] = rx_buff[3];
-
+		temp_rx_buff[0] = rx_buff[2];
+		temp_rx_buff[1] = rx_buff[3];
 		if(rx_buff[4] == 0x01)
 		{
 			Transmit_Msg();

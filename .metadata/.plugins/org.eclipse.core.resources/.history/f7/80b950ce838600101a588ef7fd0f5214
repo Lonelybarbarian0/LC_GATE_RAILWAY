@@ -35,11 +35,7 @@ void Send_If_Change()
 		(temp_tx_buff[4] != tx_buff[4]) || (temp_tx_buff[5] != tx_buff[5]) ||
 		(temp_tx_buff[6] != tx_buff[6]) || (temp_tx_buff[7] != tx_buff[7]) )
 	{
-		HAL_TIM_Base_Stop_IT(&htim1); /* 15s Interrupt Timer Stop */
 		Transmit_Msg();
-		__HAL_TIM_SET_COUNTER(&htim1, 0);
-		HAL_TIM_Base_Start_IT(&htim1); /* 15s Interrupt Timer Start */
-
 	}
 }
 
