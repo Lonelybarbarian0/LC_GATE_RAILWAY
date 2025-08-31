@@ -32,7 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-extern volatile uint8_t temp_tx_buff[10];
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/

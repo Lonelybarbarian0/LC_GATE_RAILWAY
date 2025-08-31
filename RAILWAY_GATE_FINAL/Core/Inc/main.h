@@ -59,8 +59,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Alarm_Trigger1_Pin GPIO_PIN_0
 #define Alarm_Trigger1_GPIO_Port GPIOC
-#define Alarm_Trigger2_Pin GPIO_PIN_1
-#define Alarm_Trigger2_GPIO_Port GPIOC
 #define Lock_Trigger_Pin GPIO_PIN_2
 #define Lock_Trigger_GPIO_Port GPIOC
 #define SIDE2_RX2_Pin GPIO_PIN_1
@@ -71,6 +69,12 @@ void Error_Handler(void);
 #define BOOM1_ADC_GPIO_Port GPIOA
 #define BOOM2_ADC_Pin GPIO_PIN_5
 #define BOOM2_ADC_GPIO_Port GPIOA
+#define FREE_ADC1_Pin GPIO_PIN_4
+#define FREE_ADC1_GPIO_Port GPIOC
+#define FREE_ADC2_Pin GPIO_PIN_5
+#define FREE_ADC2_GPIO_Port GPIOC
+#define FREE_ADC3_Pin GPIO_PIN_0
+#define FREE_ADC3_GPIO_Port GPIOB
 #define BOOM1_LS11_Pin GPIO_PIN_12
 #define BOOM1_LS11_GPIO_Port GPIOB
 #define BOOM1_LS11_EXTI_IRQn EXTI15_10_IRQn

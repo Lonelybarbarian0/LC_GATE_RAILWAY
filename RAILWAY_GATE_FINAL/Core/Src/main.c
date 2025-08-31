@@ -450,10 +450,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, Alarm_Trigger1_Pin|Alarm_Trigger2_Pin|Lock_Trigger_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, Alarm_Trigger1_Pin|Lock_Trigger_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : Alarm_Trigger1_Pin Alarm_Trigger2_Pin Lock_Trigger_Pin */
-  GPIO_InitStruct.Pin = Alarm_Trigger1_Pin|Alarm_Trigger2_Pin|Lock_Trigger_Pin;
+  /*Configure GPIO pins : Alarm_Trigger1_Pin Lock_Trigger_Pin */
+  GPIO_InitStruct.Pin = Alarm_Trigger1_Pin|Lock_Trigger_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
