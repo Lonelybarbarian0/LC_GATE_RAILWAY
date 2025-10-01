@@ -1,0 +1,17 @@
+00:38:51 **** Incremental Build of configuration Debug for project LC_GATE ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/CDH.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/CDH.d" -MT"Core/Src/CDH.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/CDH.o"
+arm-none-eabi-gcc -o "LC_GATE.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kailas/Desktop/LC_GATE/LC_GATE/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LC_GATE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LC_GATE.elf
+ 
+arm-none-eabi-size  LC_GATE.elf 
+arm-none-eabi-objdump -h -S LC_GATE.elf  > "LC_GATE.list"
+   text	   data	    bss	    dec	    hex	filename
+  35892	    276	   9068	  45236	   b0b4	LC_GATE.elf
+Finished building: default.size.stdout
+ 
+Finished building: LC_GATE.list
+ 
+
+00:38:52 Build Finished. 0 errors, 0 warnings. (took 890ms)
+

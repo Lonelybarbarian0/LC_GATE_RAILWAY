@@ -1,0 +1,103 @@
+/*
+ * POLL.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+#include "POLL.h"
+
+
+void Boom1_Status()
+{
+	if( ( (HAL_GPIO_ReadPin(BOOM1_LS11_GPIO_Port, BOOM1_LS11_Pin) == GPIO_PIN_RESET) &&
+		  (HAL_GPIO_ReadPin(BOOM1_LS12_GPIO_Port, BOOM1_LS12_Pin) == GPIO_PIN_SET) ) ||
+		( (HAL_GPIO_ReadPin(BOOM1_LS21_GPIO_Port, BOOM1_LS21_Pin) == GPIO_PIN_RESET) &&
+		  (HAL_GPIO_ReadPin(BOOM1_LS22_GPIO_Port, BOOM1_LS22_Pin) == GPIO_PIN_SET) ) )
+	{
+		temp_tx_buff[4] = 0x00; /* BOOM 1 CLOSED */
+		temp_tx_buff[6] = 0x01; /* BOOM 1 Healthy */
+
+	}
+	else if( ( (HAL_GPIO_ReadPin(BOOM1_LS11_GPIO_Port, BOOM1_LS11_Pin) == GPIO_PIN_SET) &&
+		       (HAL_GPIO_ReadPin(BOOM1_LS12_GPIO_Port, BOOM1_LS12_Pin) == GPIO_PIN_RESET) ) ||
+		     ( (HAL_GPIO_ReadPin(BOOM1_LS21_GPIO_Port, BOOM1_LS21_Pin) == GPIO_PIN_SET) &&
+		       (HAL_GPIO_ReadPin(BOOM1_LS22_GPIO_Port, BOOM1_LS22_Pin) == GPIO_PIN_RESET) ) )
+	{
+		temp_tx_buff[4] = 0x01; /* BOOM 1 OPEN */
+		temp_tx_buff[6] = 0x01; /* BOOM 1 Healthy */
+	}
+	else
+	{
+		temp_tx_buff[4] = 0xFF;
+		temp_tx_buff[6] = 0x00; /* BOOM 1 HEALTH BAD */
+	}
+
+}
+
+void Boom2_Status()
+{
+	if( ( (HAL_GPIO_ReadPin(BOOM2_LS11_GPIO_Port, BOOM2_LS11_Pin) == GPIO_PIN_RESET) &&
+		  (HAL_GPIO_ReadPin(BOOM2_LS12_GPIO_Port, BOOM2_LS12_Pin) == GPIO_PIN_SET) ) ||
+		( (HAL_GPIO_ReadPin(BOOM2_LS21_GPIO_Port, BOOM2_LS21_Pin) == GPIO_PIN_RESET) &&
+		  (HAL_GPIO_ReadPin(BOOM2_LS22_GPIO_Port, BOOM2_LS22_Pin) == GPIO_PIN_SET) ) )
+	{
+		temp_tx_buff[5] = 0x00; /* BOOM 2 CLOSED */
+		temp_tx_buff[7] = 0x01; /* BOOM 2 Healthy */
+
+	}
+	else if( ( (HAL_GPIO_ReadPin(BOOM2_LS11_GPIO_Port, BOOM2_LS11_Pin) == GPIO_PIN_SET) &&
+		       (HAL_GPIO_ReadPin(BOOM2_LS12_GPIO_Port, BOOM2_LS12_Pin) == GPIO_PIN_RESET) ) ||
+		     ( (HAL_GPIO_ReadPin(BOOM2_LS21_GPIO_Port, BOOM2_LS21_Pin) == GPIO_PIN_SET) &&
+		       (HAL_GPIO_ReadPin(BOOM2_LS22_GPIO_Port, BOOM2_LS22_Pin) == GPIO_PIN_RESET) ) )
+	{
+		temp_tx_buff[5] = 0x01; /* BOOM 2 OPEN */
+		temp_tx_buff[7] = 0x01; /* BOOM 2 Healthy */
+	}
+	else
+	{
+		temp_tx_buff[5] = 0xFF;
+		temp_tx_buff[7] = 0x00; /* BOOM 2 HEALTH BAD */
+	}
+
+}
+
+void UP_Train_Status()
+{
+	uint8_t data1 = {0xFF};
+	uint8_t data2 = {0xFF};
+
+    data1 = TF02_Get_Dist(&huart1);
+    data2 = TF02_Get_Dist(&huart2);
+
+    if( (data1 == 0xFF) || (data2 == 0xFF) )
+    {
+    	temp_tx_buff[2] = 0xFF; /* Sensor Error */
+    }
+    else if( (data1 <= TRAIN_DIST) && (data2 <= TRAIN_DIST) )
+    {
+    	temp_tx_buff[2] = 0x01; /* Train Detected */
+    }
+    else temp_tx_buff[2] = 0x00; /* No Train Detected */
+
+}
+
+void DOWN_Train_Status()
+{
+	uint8_t data3 = {0xFF};
+	uint8_t data4 = {0xFF};
+
+    data3 = TF02_Get_Dist(&huart3);
+    data4 = TF02_Get_Dist(&huart4);
+
+    if( (data3 == 0xFF) || (data4 == 0xFF) )
+    {
+    	temp_tx_buff[3] = 0xFF; /* Sensor Error */
+    }
+    else if( (data3 <= TRAIN_DIST) && (data4 <= TRAIN_DIST) )
+    {
+    	temp_tx_buff[3] = 0x01; /* Train Detected */
+    }
+    else temp_tx_buff[3] = 0x00; /* No Train Detected */
+
+}

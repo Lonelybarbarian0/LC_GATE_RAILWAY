@@ -1,0 +1,18 @@
+!SESSION 2025-09-15 19:40:14.200 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-15 19:40:29.356
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-15 19:40:29.357
+!MESSAGE Log4j2 initialized with config file /home/kailas/Music/LC_GATE_RAILWAY-master/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-15 19:40:32.230
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-15 19:40:52.254
+!MESSAGE Indexed 'RAILWAY_GATE_FINAL' (41 sources, 148 headers) in 7.4 sec: 15,781 declarations; 85,355 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.24%)

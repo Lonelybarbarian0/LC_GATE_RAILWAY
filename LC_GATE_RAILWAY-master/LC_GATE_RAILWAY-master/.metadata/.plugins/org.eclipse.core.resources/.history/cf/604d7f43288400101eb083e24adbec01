@@ -1,0 +1,13 @@
+/*
+ * ACT.h
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+#ifndef INC_ACT_H_
+#define INC_ACT_H_
+
+#endif /* INC_ACT_H_ */
+
+/* Used to enable/disable actuators , Alarm , Lock , etc. */

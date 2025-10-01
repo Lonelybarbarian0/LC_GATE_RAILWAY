@@ -1,0 +1,63 @@
+/*
+ * WRAPPER.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+/* Includes Begin */
+#include "WRAPPER.h"
+/* Includes END */
+
+
+/* Function Def Begin */
+
+/**
+  * @brief  Starts reading the status of two BOOM , all 4 lidar etc
+  * @param  None
+  * @retval None
+  */
+void Start_Polling()
+{
+	Boom1_Status();
+    Boom2_Status();
+	Lever_Status();
+	LeverLock_Status();
+	UP_Train_Status();
+	DOWN_Train_Status();
+}
+
+/**
+  * @brief  Sends Data via USB VCP whenever a change in the status of BOOM or Lidar data is detected
+  * @param  None
+  * @retval None
+  */
+void Send_If_Change()
+{
+	if( (temp_tx_buff[2] != tx_buff[2])   || (temp_tx_buff[3] != tx_buff[3])   ||
+		(temp_tx_buff[4] != tx_buff[4])   || (temp_tx_buff[5] != tx_buff[5])   ||
+		(temp_tx_buff[6] != tx_buff[6])   || (temp_tx_buff[7] != tx_buff[7])   ||
+		(temp_tx_buff[8] != tx_buff[8])   || (temp_tx_buff[9] != tx_buff[9])   ||
+		(temp_tx_buff[10] != tx_buff[10]) || (temp_tx_buff[11] != tx_buff[11]) ||
+		(temp_tx_buff[12] != tx_buff[12]) )
+	{
+		HAL_TIM_Base_Stop_IT(&htim1); /* 15s Interrupt Timer Stop */
+		Transmit_Msg();
+		__HAL_TIM_SET_COUNTER(&htim1, 0);
+		HAL_TIM_Base_Start_IT(&htim1); /* 15s Interrupt Timer Start */
+
+	}
+}
+
+/**
+  * @brief  Handles Recieved message and trigger lever lock , alarm , and data transmit
+  * @param  None
+  * @retval None
+  */
+void Receive_Handler()
+{
+	Receive_Msg();
+	Lever_Lock();
+	Alarm_ON();
+}
+/* Function Def END */
