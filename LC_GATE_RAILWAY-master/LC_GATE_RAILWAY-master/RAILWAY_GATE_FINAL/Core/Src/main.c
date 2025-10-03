@@ -127,7 +127,7 @@ int main(void)
 	  Start_Polling();    /* Starts Polling the status of all sensors */
 	  Send_If_Change();   /* If any change is detected with the Previous state tx msg is done */
 	  Receive_Handler();  /* Used to Trigger lever lock and alarm based on rx data */
-	  Sys_rst(); /* Resets the stm32 every 24Hrs */
+	  //Sys_rst(); /* Resets the stm32 every 24Hrs */
 
 //	    uint16_t dist1 = TF02_Get_Dist(&huart3);
 //      uint16_t dist2 = TF02_Get_Dist(&huart4);
@@ -457,9 +457,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : Alarm_Trigger1_Pin Lock_Trigger_Pin */
   GPIO_InitStruct.Pin = Alarm_Trigger1_Pin|Lock_Trigger_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Lever_Feedback12_Pin */
