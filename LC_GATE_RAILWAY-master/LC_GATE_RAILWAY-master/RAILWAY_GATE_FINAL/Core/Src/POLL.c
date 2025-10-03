@@ -227,4 +227,16 @@ void LeverLock_Status()
 
 }
 
+void Sys_rst(void)
+{
+    static uint8_t reset_done = 0; // prevent multiple resets in same tick
+
+    if(HAL_GetTick() >= 86400000 && reset_done == 0)
+    {
+        reset_done = 1;  // ensure NVIC_SystemReset called only once
+        NVIC_SystemReset();
+    }
+}
+
+
 /* Function Def END */

@@ -127,7 +127,7 @@ int main(void)
 	  Start_Polling();    /* Starts Polling the status of all sensors */
 	  Send_If_Change();   /* If any change is detected with the Previous state tx msg is done */
 	  Receive_Handler();  /* Used to Trigger lever lock and alarm based on rx data */
-
+	  Sys_rst(); /* Resets the stm32 every 24Hrs */
 
 //	    uint16_t dist1 = TF02_Get_Dist(&huart3);
 //      uint16_t dist2 = TF02_Get_Dist(&huart4);

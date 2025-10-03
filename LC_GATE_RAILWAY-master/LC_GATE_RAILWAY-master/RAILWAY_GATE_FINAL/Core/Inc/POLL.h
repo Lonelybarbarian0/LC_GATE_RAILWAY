@@ -31,4 +31,5 @@ void UP_Train_Status(void);
 void DOWN_Train_Status(void);
 void Lever_Status(void);
 void LeverLock_Status(void);
+void Sys_rst(void);
 
