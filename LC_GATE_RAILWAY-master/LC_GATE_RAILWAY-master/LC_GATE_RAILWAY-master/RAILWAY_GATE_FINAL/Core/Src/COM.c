@@ -1,0 +1,69 @@
+/*
+ * COM.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+/* Includes Begin */
+#include "COM.h"
+/* Includes END */
+
+/* Variable Declarations Begin */
+volatile uint8_t rx_buff[5] = {0xFF}; /* Received Message */
+volatile uint8_t temp_rx_buff[2] = {0xFF}; /* [0] -> Lever Lock Instr | [1] -> Alarm Lock Instr */
+volatile uint8_t tx_buff[11] = {0xFF}; /* Transmitted Message */
+volatile uint8_t temp_tx_buff[11] = {0xFF}; /* Transmitting Message */
+extern uint8_t flag;
+/* Variable Declarations END */
+
+/**
+  * @brief  Transmits the data via USB_VCP after parsing the tx_buff[]
+  *         Total 10 bytes of data...
+  * @param  None
+  * @retval None
+  */
+void Transmit_Msg()
+{
+	tx_buff[0] = 0x55;               /* Header */
+	tx_buff[1] = 0x55;               /* Header */
+
+	tx_buff[2] = temp_tx_buff[2];    /* Train UP */
+	tx_buff[3] = temp_tx_buff[3];    /* Train DOWN */
+
+	tx_buff[4] = temp_tx_buff[4];    /* BOOM 1 STATUS */
+	tx_buff[5] = temp_tx_buff[5];    /* BOOM 2 STATUS */
+
+	tx_buff[6] = temp_tx_buff[6];    /* BOOM 1 HEALTH */
+	tx_buff[7] = temp_tx_buff[7];    /* BOOM 2 HEALTH */
+
+	tx_buff[8] = temp_tx_buff[8];    /* Lock Status */
+	tx_buff[9] = temp_tx_buff[9];    /* Alarm Status */
+	tx_buff[10] = temp_tx_buff[10];  /* BYPASS STATUS */
+
+	CDC_Transmit_FS((uint8_t*)tx_buff,11);
+}
+
+/**
+  * @brief  Reads the recieved buffer from USB VCP
+  * @param  None
+  * @retval None
+  */
+void Receive_Msg()
+{
+	if((flag == 1) && (rx_buff[0] == 0x59) && (rx_buff[1] == 0x59))
+	{
+		 flag = 0;
+		 if(rx_buff[2] == 0x00 || rx_buff[2] == 0x01)
+			 temp_rx_buff[0] = rx_buff[2];
+		 if(rx_buff[3] == 0x00 || rx_buff[3] == 0x01)
+			 temp_rx_buff[1] = rx_buff[3];
+
+		if(rx_buff[4] == 0x01)
+		{
+			Transmit_Msg();
+			rx_buff[4] = 0xFF; /* To preventing from sending data continuously */
+		}
+	}
+}
+/* Function Def END */
+

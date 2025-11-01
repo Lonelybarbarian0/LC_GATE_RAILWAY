@@ -1,0 +1,88 @@
+/*
+ * POLL.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+/* Includes Begin */
+#include "POLL.h"
+/* Includes END */
+
+
+/* Function Def Begin */
+
+/**
+  * @brief  Reads the two adjacent Lidar values
+  *         Compare it with TRAIN_DIST MACRO and changes temp_tx_buff[2] - UP direction
+  * @param  None
+  * @retval None
+  */
+void UP_Train_Status()
+{
+	volatile uint16_t data1[5] = {0xFFFF};
+	volatile uint16_t data2[5] = {0xFFFF};
+
+	for(uint8_t i=0;i<5;i++)
+	{
+	    data1[i] = TF02_Get_Dist(&huart1);
+	    data2[i] = TF02_Get_Dist(&huart3);
+	}
+
+
+    if( ((data1[0] == 0xFFFF) && (data1[1] == 0xFFFF) && (data1[2] == 0xFFFF) && (data1[3] == 0xFFFF) && (data1[4] == 0xFFFF))
+     || ((data2[0] == 0xFFFF) && (data2[1] == 0xFFFF) && (data2[2] == 0xFFFF) && (data2[3] == 0xFFFF) && (data2[4] == 0xFFFF)) )
+    {
+    	temp_tx_buff[2] = 0xFF; /* Sensor Error */
+    }
+   if((data1[4] != 0xFFFF) && (data2[4] != 0xFFFF))
+   {
+	   if(data1[4] <= TRAIN_DIST && data2[4] <= TRAIN_DIST)
+	   {
+		   temp_tx_buff[2] = 0x01;  /* Train Detected */
+	   }
+	   else if (data1[4] >= TRAIN_DIST && data2[4] >= TRAIN_DIST)
+	   {
+		   temp_tx_buff[2] = 0x00;  /* No Train Detected */
+	   }
+   }
+
+}
+
+/**
+  * @brief  Reads the two adjacent Lidar values
+  *         Compare it with TRAIN_DIST MACRO and changes temp_tx_buff[3] - DOWN direction
+  * @param  None
+  * @retval None
+  */
+void DOWN_Train_Status()
+{
+	volatile uint16_t data3[5] = {0xFFFF};
+	volatile uint16_t data4[5] = {0xFFFF};
+
+	for(uint8_t i=0;i<5;i++)
+	{
+	    data3[i] = TF02_Get_Dist(&huart3);
+	    data4[i] = TF02_Get_Dist(&huart4);
+	}
+
+    if( ((data3[0] == 0xFFFF) && (data3[1] == 0xFFFF) && (data3[2] == 0xFFFF) && (data3[3] == 0xFFFF) && (data3[4] == 0xFFFF))
+     || ((data4[0] == 0xFFFF) && (data4[1] == 0xFFFF) && (data4[2] == 0xFFFF) && (data4[3] == 0xFFFF) && (data4[4] == 0xFFFF)) )
+    {
+    	temp_tx_buff[3] = 0xFF; /* Sensor Error */
+    }
+    if((data3[4] != 0xFFFF) && (data4[4] != 0xFFFF))
+    {
+ 	   if(data3[4] <= TRAIN_DIST && data4[4] <= TRAIN_DIST)
+ 	   {
+ 		   temp_tx_buff[3] = 0x01;  /* Train Detected */
+ 	   }
+ 	   else if (data3[4] >= TRAIN_DIST && data4[4] >= TRAIN_DIST)
+ 	   {
+ 		   temp_tx_buff[3] = 0x00;  /* No Train Detected */
+ 	   }
+    }
+
+}
+
+/* Function Def END */

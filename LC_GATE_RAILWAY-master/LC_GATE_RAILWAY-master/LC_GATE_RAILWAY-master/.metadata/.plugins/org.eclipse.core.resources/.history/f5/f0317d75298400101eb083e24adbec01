@@ -1,0 +1,15 @@
+/*
+ * POLL.h
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ *
+ *  Used to Detect Train , Boom Status , Health etc.
+ */
+
+#ifndef INC_POLL_H_
+#define INC_POLL_H_
+
+#endif /* INC_POLL_H_ */
+
+#include "main.h"

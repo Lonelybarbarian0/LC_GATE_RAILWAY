@@ -1,0 +1,8 @@
+../Drivers/CMSIS/Include/core_cm4.h:1938:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
+../Core/Src/POLL.c:22:6:UP_Train_Status	32	static
+../Core/Src/POLL.c:58:6:DOWN_Train_Status	32	static
+../Core/Src/POLL.c:92:6:Boom1_Status	8	static
+../Core/Src/POLL.c:123:6:Boom2_Status	8	static
+../Core/Src/POLL.c:154:6:Lock_Status	8	static
+../Core/Src/POLL.c:172:6:Bypass_Status	16	static
+../Core/Src/POLL.c:199:6:Sys_rst	8	static
