@@ -59,22 +59,14 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Alarm_Trigger1_Pin GPIO_PIN_0
 #define Alarm_Trigger1_GPIO_Port GPIOC
-#define Lock_Trigger_Pin GPIO_PIN_2
-#define Lock_Trigger_GPIO_Port GPIOC
-#define SIDE2_RX2_Pin GPIO_PIN_1
-#define SIDE2_RX2_GPIO_Port GPIOA
-#define SIDE1_RX2_Pin GPIO_PIN_3
-#define SIDE1_RX2_GPIO_Port GPIOA
 #define BOOM1_ADC_Pin GPIO_PIN_4
 #define BOOM1_ADC_GPIO_Port GPIOA
 #define BOOM2_ADC_Pin GPIO_PIN_5
 #define BOOM2_ADC_GPIO_Port GPIOA
-#define FREE_ADC1_Pin GPIO_PIN_4
-#define FREE_ADC1_GPIO_Port GPIOC
-#define FREE_ADC2_Pin GPIO_PIN_5
-#define FREE_ADC2_GPIO_Port GPIOC
-#define FREE_ADC3_Pin GPIO_PIN_0
-#define FREE_ADC3_GPIO_Port GPIOB
+#define BYPASS_SW_NC_Pin GPIO_PIN_1
+#define BYPASS_SW_NC_GPIO_Port GPIOB
+#define LOCK_EKT_NO_Pin GPIO_PIN_2
+#define LOCK_EKT_NO_GPIO_Port GPIOB
 #define BOOM1_LS11_Pin GPIO_PIN_12
 #define BOOM1_LS11_GPIO_Port GPIOB
 #define BOOM1_LS11_EXTI_IRQn EXTI15_10_IRQn
@@ -99,16 +91,17 @@ void Error_Handler(void);
 #define BOOM2_LS22_Pin GPIO_PIN_9
 #define BOOM2_LS22_GPIO_Port GPIOC
 #define BOOM2_LS22_EXTI_IRQn EXTI9_5_IRQn
-#define SIDE1_RX1_Pin GPIO_PIN_10
-#define SIDE1_RX1_GPIO_Port GPIOA
+#define USB_D__Pin GPIO_PIN_11
+#define USB_D__GPIO_Port GPIOA
+#define USB_D_A12_Pin GPIO_PIN_12
+#define USB_D_A12_GPIO_Port GPIOA
 #define SIDE2_RX1_Pin GPIO_PIN_11
 #define SIDE2_RX1_GPIO_Port GPIOC
-#define Lock_Feedback1_Pin GPIO_PIN_3
-#define Lock_Feedback1_GPIO_Port GPIOB
-#define Lock_Feedback1_EXTI_IRQn EXTI3_IRQn
-#define Lock_Feedback2_Pin GPIO_PIN_4
-#define Lock_Feedback2_GPIO_Port GPIOB
-#define Lock_Feedback2_EXTI_IRQn EXTI4_IRQn
+#define Lock_Trigger_Pin GPIO_PIN_3
+#define Lock_Trigger_GPIO_Port GPIOB
+#define BYPASS_SW_NO_Pin GPIO_PIN_4
+#define BYPASS_SW_NO_GPIO_Port GPIOB
+#define BYPASS_SW_NO_EXTI_IRQn EXTI4_IRQn
 
 /* USER CODE BEGIN Private defines */
 

@@ -15,9 +15,9 @@
 
 #include "main.h"
 extern volatile uint8_t temp_rx_buff[2];
-extern volatile uint8_t temp_tx_buff[10];
+extern volatile uint8_t temp_tx_buff[11];
 
-void Lever_Lock();
+void EKT_Lock();
 void Alarm_ON();
 
 

@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "COM.h"
+#include "POLL.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-extern volatile uint8_t temp_tx_buff[10];
+extern volatile uint8_t temp_tx_buff[11];
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -201,28 +202,14 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles EXTI line 3 interrupt.
-  */
-void EXTI3_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI3_IRQn 0 */
-
-  /* USER CODE END EXTI3_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(Lock_Feedback1_Pin);
-  /* USER CODE BEGIN EXTI3_IRQn 1 */
-
-  /* USER CODE END EXTI3_IRQn 1 */
-}
-
-/**
   * @brief This function handles EXTI line 4 interrupt.
   */
 void EXTI4_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI4_IRQn 0 */
-
+  Bypass_Status();
   /* USER CODE END EXTI4_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(Lock_Feedback2_Pin);
+  HAL_GPIO_EXTI_IRQHandler(BYPASS_SW_NO_Pin);
   /* USER CODE BEGIN EXTI4_IRQn 1 */
 
   /* USER CODE END EXTI4_IRQn 1 */
@@ -240,16 +227,16 @@ void EXTI9_5_IRQHandler(void)
 		( (HAL_GPIO_ReadPin(BOOM2_LS21_GPIO_Port, BOOM2_LS21_Pin) == GPIO_PIN_RESET) &&
 		  (HAL_GPIO_ReadPin(BOOM2_LS22_GPIO_Port, BOOM2_LS22_Pin) == GPIO_PIN_SET) ) )
 	{
-		temp_tx_buff[5] = 0x00; /* BOOM 2 CLOSED */
+		temp_tx_buff[5] = 0x01; /* BOOM 2 CLOSED */
 		temp_tx_buff[7] = 0x01; /* BOOM 2 Healthy */
 
 	}
 	else if( ( (HAL_GPIO_ReadPin(BOOM2_LS11_GPIO_Port, BOOM2_LS11_Pin) == GPIO_PIN_SET) &&
 		       (HAL_GPIO_ReadPin(BOOM2_LS12_GPIO_Port, BOOM2_LS12_Pin) == GPIO_PIN_RESET) ) ||
 		     ( (HAL_GPIO_ReadPin(BOOM2_LS21_GPIO_Port, BOOM2_LS21_Pin) == GPIO_PIN_SET) &&
-		       (HAL_GPIO_ReadPin(BOOM2_LS22_GPIO_Port, BOOM2_LS22_Pin) == GPIO_PIN_RESET) ) )
+	       (HAL_GPIO_ReadPin(BOOM2_LS22_GPIO_Port, BOOM2_LS22_Pin) == GPIO_PIN_RESET) ) )
 	{
-		temp_tx_buff[5] = 0x01; /* BOOM 2 OPEN */
+		temp_tx_buff[5] = 0x00; /* BOOM 2 OPEN */
 		temp_tx_buff[7] = 0x01; /* BOOM 2 Healthy */
 	}
 	else
@@ -295,7 +282,7 @@ void EXTI15_10_IRQHandler(void)
 		( (HAL_GPIO_ReadPin(BOOM1_LS21_GPIO_Port, BOOM1_LS21_Pin) == GPIO_PIN_RESET) &&
 		  (HAL_GPIO_ReadPin(BOOM1_LS22_GPIO_Port, BOOM1_LS22_Pin) == GPIO_PIN_SET) ) )
 	{
-		temp_tx_buff[4] = 0x00; /* BOOM 1 CLOSED */
+		temp_tx_buff[4] = 0x01; /* BOOM 1 CLOSED */
 		temp_tx_buff[6] = 0x01; /* BOOM 1 Healthy */
 
 	}
@@ -304,7 +291,7 @@ void EXTI15_10_IRQHandler(void)
 		     ( (HAL_GPIO_ReadPin(BOOM1_LS21_GPIO_Port, BOOM1_LS21_Pin) == GPIO_PIN_SET) &&
 		       (HAL_GPIO_ReadPin(BOOM1_LS22_GPIO_Port, BOOM1_LS22_Pin) == GPIO_PIN_RESET) ) )
 	{
-		temp_tx_buff[4] = 0x01; /* BOOM 1 OPEN */
+		temp_tx_buff[4] = 0x00; /* BOOM 1 OPEN */
 		temp_tx_buff[6] = 0x01; /* BOOM 1 Healthy */
 	}
 	else

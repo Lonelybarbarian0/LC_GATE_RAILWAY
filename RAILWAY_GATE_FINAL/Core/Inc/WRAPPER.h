@@ -10,8 +10,8 @@
 #include "usbd_cdc_if.h"
 
 extern TIM_HandleTypeDef htim1;
-extern volatile uint8_t temp_tx_buff[10];
-extern volatile uint8_t tx_buff[10];
+extern volatile uint8_t temp_tx_buff[11];
+extern volatile uint8_t tx_buff[11];
 
 void Start_Polling();
 void Send_If_Change();

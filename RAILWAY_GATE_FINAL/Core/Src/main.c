@@ -49,8 +49,8 @@ ADC_HandleTypeDef hadc1;
 TIM_HandleTypeDef htim1;
 
 UART_HandleTypeDef huart4;
+UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart1;
-UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
@@ -62,10 +62,10 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_USART2_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_UART4_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_UART5_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -106,15 +106,16 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM1_Init();
   MX_USART1_UART_Init();
-  MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   MX_USB_DEVICE_Init();
   MX_UART4_Init();
   MX_ADC1_Init();
+  MX_UART5_Init();
   /* USER CODE BEGIN 2 */
 
   //char buff1[20] = {0};
   //char buff2[20] = {0};
+
   // Start TIM1 with interrupt
   HAL_TIM_Base_Start_IT(&htim1); /* 15s Interrupt Timer Start */
   /* USER CODE END 2 */
@@ -123,12 +124,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  Start_Polling();    //Starts Polling Boom status along with Train passing and save the status
-	  Send_If_Change();   //If any change is detected with the Previous state of any Boom or Train pass tx is enabled
-	  Receive_Handler();  //Used to Trigger lever lock and alarm based on rx data
+	  Start_Polling();    /* Starts Polling the status of all sensors */
+	  Send_If_Change();   /* If any change is detected with the Previous state tx msg is done */
+	  Receive_Handler();  /* Used to Trigger lever lock and alarm based on rx data */
+	  //Sys_rst(); /* Resets the stm32 every 24Hrs */
 
-//	  uint16_t dist1 = TF02_Get_Dist(&huart1);
-//      uint16_t dist2 = TF02_Get_Dist(&huart3);
+//	    uint16_t dist1 = TF02_Get_Dist(&huart3);
+//      uint16_t dist2 = TF02_Get_Dist(&huart4);
 //
 //      sprintf(buff1,"lidar1: %d \r\n",dist1);
 //      sprintf(buff2,"lidar2: %d \r\n",dist2);
@@ -334,6 +336,39 @@ static void MX_UART4_Init(void)
 }
 
 /**
+  * @brief UART5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART5_Init(void)
+{
+
+  /* USER CODE BEGIN UART5_Init 0 */
+
+  /* USER CODE END UART5_Init 0 */
+
+  /* USER CODE BEGIN UART5_Init 1 */
+
+  /* USER CODE END UART5_Init 1 */
+  huart5.Instance = UART5;
+  huart5.Init.BaudRate = 115200;
+  huart5.Init.WordLength = UART_WORDLENGTH_8B;
+  huart5.Init.StopBits = UART_STOPBITS_1;
+  huart5.Init.Parity = UART_PARITY_NONE;
+  huart5.Init.Mode = UART_MODE_TX_RX;
+  huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart5.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART5_Init 2 */
+
+  /* USER CODE END UART5_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -363,39 +398,6 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* USER CODE END USART1_Init 2 */
-
-}
-
-/**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART2_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART2_Init 0 */
-
-  /* USER CODE END USART2_Init 0 */
-
-  /* USER CODE BEGIN USART2_Init 1 */
-
-  /* USER CODE END USART2_Init 1 */
-  huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  huart2.Init.StopBits = UART_STOPBITS_1;
-  huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART2_Init 2 */
-
-  /* USER CODE END USART2_Init 2 */
 
 }
 
@@ -444,23 +446,35 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, Alarm_Trigger1_Pin|Lock_Trigger_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(Alarm_Trigger1_GPIO_Port, Alarm_Trigger1_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : Alarm_Trigger1_Pin Lock_Trigger_Pin */
-  GPIO_InitStruct.Pin = Alarm_Trigger1_Pin|Lock_Trigger_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(Lock_Trigger_GPIO_Port, Lock_Trigger_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : BOOM1_LS11_Pin BOOM1_LS12_Pin BOOM1_LS21_Pin BOOM1_LS22_Pin */
-  GPIO_InitStruct.Pin = BOOM1_LS11_Pin|BOOM1_LS12_Pin|BOOM1_LS21_Pin|BOOM1_LS22_Pin;
+  /*Configure GPIO pin : Alarm_Trigger1_Pin */
+  GPIO_InitStruct.Pin = Alarm_Trigger1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  HAL_GPIO_Init(Alarm_Trigger1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BYPASS_SW_NC_Pin LOCK_EKT_NO_Pin */
+  GPIO_InitStruct.Pin = BYPASS_SW_NC_Pin|LOCK_EKT_NO_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BOOM1_LS11_Pin BOOM1_LS12_Pin BOOM1_LS21_Pin BOOM1_LS22_Pin
+                           BYPASS_SW_NO_Pin */
+  GPIO_InitStruct.Pin = BOOM1_LS11_Pin|BOOM1_LS12_Pin|BOOM1_LS21_Pin|BOOM1_LS22_Pin
+                          |BYPASS_SW_NO_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -471,23 +485,21 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Lock_Feedback1_Pin Lock_Feedback2_Pin */
-  GPIO_InitStruct.Pin = Lock_Feedback1_Pin|Lock_Feedback2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  /*Configure GPIO pin : Lock_Trigger_Pin */
+  GPIO_InitStruct.Pin = Lock_Trigger_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  HAL_GPIO_Init(Lock_Trigger_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
-
   HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 1);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 1);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */

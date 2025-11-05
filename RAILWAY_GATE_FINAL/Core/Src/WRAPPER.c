@@ -19,6 +19,10 @@
   */
 void Start_Polling()
 {
+	Boom1_Status();
+    Boom2_Status();
+    Lock_Status();
+    Bypass_Status();
 	UP_Train_Status();
 	DOWN_Train_Status();
 }
@@ -30,10 +34,11 @@ void Start_Polling()
   */
 void Send_If_Change()
 {
-	if( (temp_tx_buff[2] != tx_buff[2]) || (temp_tx_buff[3] != tx_buff[3]) ||
-		(temp_tx_buff[4] != tx_buff[4]) || (temp_tx_buff[5] != tx_buff[5]) ||
-		(temp_tx_buff[6] != tx_buff[6]) || (temp_tx_buff[7] != tx_buff[7]) ||
-		(temp_tx_buff[8] != tx_buff[8]) || (temp_tx_buff[9] != tx_buff[9]) )
+	if( (temp_tx_buff[2] != tx_buff[2])   || (temp_tx_buff[3] != tx_buff[3])   ||
+		(temp_tx_buff[4] != tx_buff[4])   || (temp_tx_buff[5] != tx_buff[5])   ||
+		(temp_tx_buff[6] != tx_buff[6])   || (temp_tx_buff[7] != tx_buff[7])   ||
+		(temp_tx_buff[8] != tx_buff[8])   || (temp_tx_buff[9] != tx_buff[9])   ||
+		(temp_tx_buff[10] != tx_buff[10]))
 	{
 		HAL_TIM_Base_Stop_IT(&htim1); /* 15s Interrupt Timer Stop */
 		Transmit_Msg();
@@ -51,7 +56,7 @@ void Send_If_Change()
 void Receive_Handler()
 {
 	Receive_Msg();
-	Lever_Lock();
+	EKT_Lock();
 	Alarm_ON();
 }
 /* Function Def END */

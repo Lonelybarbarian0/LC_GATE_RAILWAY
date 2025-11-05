@@ -22,7 +22,7 @@
 #include "usbd_cdc_if.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+#include "COM.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -33,7 +33,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 extern uint8_t rx_buff[5]; /* Used to Retrieve the rx data from tablet */
-
+uint8_t flag = 0;
 /* USER CODE END PV */
 
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
@@ -271,7 +271,8 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   rx_buff[2] = Buf[2];
   rx_buff[3] = Buf[3];
   rx_buff[4] = Buf[4];
-
+  flag = 1;
+  Receive_Msg();
   return (USBD_OK);
   /* USER CODE END 6 */
 }
