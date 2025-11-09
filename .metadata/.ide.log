@@ -1,0 +1,177 @@
+2025-09-01 00:17:29,556 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,558 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,559 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,560 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,560 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,560 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,711 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,711 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,711 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,825 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,825 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:29,825 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:47,197 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 327816192 Bytes (584056832)
+2025-09-01 00:17:48,524 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 354556928 Bytes (584056832)
+2025-09-01 00:17:48,851 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 380771328 Bytes (584056832)
+2025-09-01 00:17:49,572 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8
+2025-09-01 00:17:49,575 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USB_DEVICE
+2025-09-01 00:17:49,575 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2025-09-01 00:17:49,575 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
+2025-09-01 00:17:49,576 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USB_OTG_FS
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: UART
+2025-09-01 00:17:49,577 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2025-09-01 00:17:49,579 [INFO] CodeGenerator:807 - code generatio: config db path: /opt/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.common.mx_6.12.0.202406281431//db/
+2025-09-01 00:17:49,682 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:49,682 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:49,682 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:17:49,918 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/license.tmp_save
+2025-09-01 00:17:50,246 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/license.tmp
+2025-09-01 00:17:50,327 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/gpio.tmp_save
+2025-09-01 00:17:50,460 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/gpio.tmp
+2025-09-01 00:17:50,561 [WARN] IPConfigManager:3005 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-09-01 00:17:50,566 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_vars.tmp_save
+2025-09-01 00:17:50,665 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_vars.tmp
+2025-09-01 00:17:50,668 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_inc.tmp_save
+2025-09-01 00:17:50,754 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_inc.tmp
+2025-09-01 00:17:50,755 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_HalInit.tmp_save
+2025-09-01 00:17:50,883 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_HalInit.tmp
+2025-09-01 00:17:50,884 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_Msp.tmp_save
+2025-09-01 00:17:50,998 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_Msp.tmp
+2025-09-01 00:17:51,410 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2025-09-01 00:17:51,462 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2025-09-01 00:17:51,473 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.c_save
+2025-09-01 00:17:51,587 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.c
+2025-09-01 00:17:51,588 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.h_save
+2025-09-01 00:17:51,680 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.h
+2025-09-01 00:17:51,682 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.h_save
+2025-09-01 00:17:51,785 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.h
+2025-09-01 00:17:51,787 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.c_save
+2025-09-01 00:17:51,888 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.c
+2025-09-01 00:17:51,892 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.h_save
+2025-09-01 00:17:51,959 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.h
+2025-09-01 00:17:51,960 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.c_save
+2025-09-01 00:17:52,028 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.c
+2025-09-01 00:17:52,030 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.h_save
+2025-09-01 00:17:52,091 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.h
+2025-09-01 00:17:52,093 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.c_save
+2025-09-01 00:17:52,168 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.c
+2025-09-01 00:17:52,178 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_it.c_save
+2025-09-01 00:17:52,305 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_it.c
+2025-09-01 00:17:52,307 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_it.h_save
+2025-09-01 00:17:52,383 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_it.h
+2025-09-01 00:17:52,397 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_hal_msp.c_save
+2025-09-01 00:17:52,556 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_hal_msp.c
+2025-09-01 00:17:52,558 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/system.tmp_save
+2025-09-01 00:17:52,623 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/system.tmp
+2025-09-01 00:17:52,626 [INFO] CodeEngine:311 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_hal_conf.h_save
+2025-09-01 00:17:52,701 [INFO] CodeEngine:335 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_hal_conf.h
+2025-09-01 00:17:52,725 [WARN] IPConfigManager:3005 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2025-09-01 00:17:52,739 [WARN] IPConfigManager:3554 - IP not found : TIM
+2025-09-01 00:17:52,740 [WARN] CodeGenerator:4002 - IP not found : null
+2025-09-01 00:17:52,743 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/main.h_save
+2025-09-01 00:17:52,829 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/main.h
+2025-09-01 00:17:52,831 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/main.c_save
+2025-09-01 00:17:52,973 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/main.c
+2025-09-01 00:17:53,242 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 35mS.
+2025-09-01 00:17:53,246 [INFO] ProjectBuilder:4828 - Project Generator version: 4.4.0-B60
+2025-09-01 00:17:53,362 [INFO] ConfigFileManager:1531 - The Die is : DIE421
+2025-09-01 00:17:53,365 [INFO] ApiDbMcu:508 - Load IP Config File for FATFS
+2025-09-01 00:17:53,369 [INFO] ApiDbMcu:508 - Load IP Config File for FREERTOS
+2025-09-01 00:17:53,371 [INFO] ApiDbMcu:508 - Load IP Config File for LIBJPEG
+2025-09-01 00:17:53,376 [INFO] ApiDbMcu:508 - Load IP Config File for MBEDTLS
+2025-09-01 00:17:53,379 [INFO] ApiDbMcu:508 - Load IP Config File for USB_HOST
+2025-09-01 00:17:55,234 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1988mS.
+2025-09-01 00:17:55,236 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 2mS.
+2025-09-01 00:17:55,237 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2025-09-01 00:39:19,997 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 227375200 Bytes (754974720)
+2025-09-01 00:39:22,236 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 432528448 Bytes (754974720)
+2025-09-01 00:39:23,809 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 487054400 Bytes (754974720)
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USB_DEVICE
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USB_OTG_FS
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-09-01 00:39:23,941 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: UART
+2025-09-01 00:39:23,942 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2025-09-01 00:39:23,942 [INFO] CodeGenerator:807 - code generatio: config db path: /opt/st/stm32cubeide_1.16.0/plugins/com.st.stm32cube.common.mx_6.12.0.202406281431//db/
+2025-09-01 00:39:24,021 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:39:24,021 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:39:24,021 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:39:24,138 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/license.tmp_save
+2025-09-01 00:39:24,354 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/license.tmp
+2025-09-01 00:39:24,385 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/gpio.tmp_save
+2025-09-01 00:39:24,493 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/gpio.tmp
+2025-09-01 00:39:24,557 [WARN] IPConfigManager:3005 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-09-01 00:39:24,561 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_vars.tmp_save
+2025-09-01 00:39:24,653 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_vars.tmp
+2025-09-01 00:39:24,654 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_inc.tmp_save
+2025-09-01 00:39:24,712 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_inc.tmp
+2025-09-01 00:39:24,714 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_HalInit.tmp_save
+2025-09-01 00:39:24,791 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_HalInit.tmp
+2025-09-01 00:39:24,792 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_Msp.tmp_save
+2025-09-01 00:39:24,876 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/usb_otg_fs_Msp.tmp
+2025-09-01 00:39:25,193 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2025-09-01 00:39:25,223 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2025-09-01 00:39:25,226 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.c_save
+2025-09-01 00:39:25,296 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.c
+2025-09-01 00:39:25,297 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.h_save
+2025-09-01 00:39:25,356 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usb_device.h
+2025-09-01 00:39:25,357 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.h_save
+2025-09-01 00:39:25,415 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.h
+2025-09-01 00:39:25,416 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.c_save
+2025-09-01 00:39:25,485 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/Target/usbd_conf.c
+2025-09-01 00:39:25,487 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.h_save
+2025-09-01 00:39:25,544 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.h
+2025-09-01 00:39:25,545 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.c_save
+2025-09-01 00:39:25,607 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_desc.c
+2025-09-01 00:39:25,609 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.h_save
+2025-09-01 00:39:25,665 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.h
+2025-09-01 00:39:25,666 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.c_save
+2025-09-01 00:39:25,743 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/USB_DEVICE/App/usbd_cdc_if.c
+2025-09-01 00:39:25,755 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_it.c_save
+2025-09-01 00:39:25,954 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_it.c
+2025-09-01 00:39:25,956 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_it.h_save
+2025-09-01 00:39:26,012 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_it.h
+2025-09-01 00:39:26,024 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_hal_msp.c_save
+2025-09-01 00:39:26,131 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/stm32f4xx_hal_msp.c
+2025-09-01 00:39:26,132 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/system.tmp_save
+2025-09-01 00:39:26,184 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/MXTmpFiles/system.tmp
+2025-09-01 00:39:26,187 [INFO] CodeEngine:311 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_hal_conf.h_save
+2025-09-01 00:39:26,252 [INFO] CodeEngine:335 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/stm32f4xx_hal_conf.h
+2025-09-01 00:39:26,271 [WARN] IPConfigManager:3005 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2025-09-01 00:39:26,278 [WARN] IPConfigManager:3554 - IP not found : TIM
+2025-09-01 00:39:26,278 [WARN] CodeGenerator:4002 - IP not found : null
+2025-09-01 00:39:26,282 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/main.h_save
+2025-09-01 00:39:26,370 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Inc/main.h
+2025-09-01 00:39:26,372 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/main.c_save
+2025-09-01 00:39:26,547 [INFO] CodeEngine:279 - Generated code: /home/kailas/Desktop/LC_GATE/RAILWAY_GATE_FINAL/Core/Src/main.c
+2025-09-01 00:39:26,823 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 41mS.
+2025-09-01 00:39:26,827 [INFO] ProjectBuilder:4828 - Project Generator version: 4.4.0-B60
+2025-09-01 00:39:26,904 [INFO] ConfigFileManager:1531 - The Die is : DIE421
+2025-09-01 00:39:27,920 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1092mS.
+2025-09-01 00:39:27,920 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2025-09-01 00:39:27,924 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
+2025-09-01 00:52:47,601 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,602 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,603 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,603 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,603 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,603 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,604 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,604 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,604 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,604 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-09-01 00:52:47,686 [WARN] IP:2191 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:52:47,686 [WARN] IP:2191 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:52:47,686 [WARN] IP:2191 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2025-09-01 00:52:47,702 [INFO] IPUIPlugin:80 - create IPUIPlugin

@@ -1,0 +1,41 @@
+/*
+ * WRAPPER.c
+ *
+ *  Created on: Aug 28, 2025
+ *      Author: kailas
+ */
+
+#include "WRAPPER.h"
+
+void Device_Info()
+{
+	char buff[40] = "LC GATE Dev id:0x55 \r\n By HESPER TECH \r\n Welcome!";
+	CDC_Transmit_FS((uint8_t*)buff,strlen(buff));
+}
+
+void Start_Polling()
+{
+	Boom1_Status();
+	Boom2_Status();
+	UP_Train_Status();
+	DOWN_Train_Status();
+}
+void Send_If_Change()
+{
+	if( (temp_tx_buff[2] != tx_buff[2]) || (temp_tx_buff[3] != tx_buff[3]) ||
+		(temp_tx_buff[4] != tx_buff[4]) || (temp_tx_buff[5] != tx_buff[5]) ||
+		(temp_tx_buff[6] != tx_buff[6]) || (temp_tx_buff[7] != tx_buff[7]) )
+	{
+		Transmit_Msg();
+	}
+}
+void Receive_Handler()
+{
+	Receive_Msg();
+	Lever_Lock();
+	Alarm_ON();
+}
+
+
+
+
