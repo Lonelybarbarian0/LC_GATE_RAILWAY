@@ -16,11 +16,16 @@
 #include "TF02.h"
 #include "COM.h"
 
+<<<<<<< HEAD
 //700, 900
 #define TRAIN_DIST_UP 650
 #define TRAIN_DIST_DOWN 900
 #define TRAIN_DIST_LOW_UP 200
 #define TRAIN_DIST_LOW_DOWN 200
+=======
+#define TRAIN_DIST 1000
+#define TRAIN_DIST_LOW 200
+>>>>>>> origin/Devel
 
 extern UART_HandleTypeDef huart4;
 extern UART_HandleTypeDef huart1;

@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ../Core/Src/COM.c:25:6:Transmit_Msg	1
 ../Core/Src/COM.c:51:6:Receive_Msg	9
+=======
+../Core/Src/COM.c:25:6:Transmit_Msg	1
+../Core/Src/COM.c:51:6:Receive_Msg	9
+>>>>>>> origin/Devel

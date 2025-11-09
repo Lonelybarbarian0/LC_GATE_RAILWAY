@@ -129,10 +129,15 @@ int main(void)
 	  Receive_Handler();  /* Used to Trigger lever lock and alarm based on rx data */
 	  //Sys_rst(); /* Resets the stm32 every 24Hrs */
 
+<<<<<<< HEAD
 
       /*Uncomment from line 133 to 147 along with 116 & 117 to read lidar 1 and 2 in serial monitoe */
 //      uint16_t dist1 = TF02_Get_Dist(&huart1);
 //      uint16_t dist2 = TF02_Get_Dist(&huart5);
+=======
+//	    uint16_t dist1 = TF02_Get_Dist(&huart3);
+//      uint16_t dist2 = TF02_Get_Dist(&huart4);
+>>>>>>> origin/Devel
 //
 //      sprintf(buff1,"lidar1: %d \r\n",dist1);
 //      sprintf(buff2,"lidar2: %d \r\n",dist2);

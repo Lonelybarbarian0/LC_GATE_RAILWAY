@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ../Core/Src/TF02.c:24:10:TF02_Get_Dist	32	static
+=======
+../Core/Src/TF02.c:24:10:TF02_Get_Dist	32	static
+>>>>>>> origin/Devel

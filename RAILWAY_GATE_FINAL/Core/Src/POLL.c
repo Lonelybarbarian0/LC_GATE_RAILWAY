@@ -27,11 +27,15 @@ void UP_Train_Status(void)
 	for(uint8_t i=0;i<3;i++)
 	{
 	    data1[i] = TF02_Get_Dist(&huart1);
+<<<<<<< HEAD
 	    HAL_Delay(100);
+=======
+>>>>>>> origin/Devel
 	    data2[i] = TF02_Get_Dist(&huart5);
 	}
 
 
+<<<<<<< HEAD
     if( ((data1[0] == 0xFFFF) && (data1[1] == 0xFFFF) && (data1[2] == 0xFFFF)) ||
         ((data2[0] == 0xFFFF) && (data2[1] == 0xFFFF) && (data2[2] == 0xFFFF)) )
     {
@@ -48,6 +52,19 @@ void UP_Train_Status(void)
 
 	   }
 	   else
+=======
+    if((data1[0] == 0xFFFF) && (data1[1] == 0xFFFF) && (data1[2] == 0xFFFF))
+    {
+    	temp_tx_buff[2] = 0x11; /* Sensor Error */
+    }
+   if((data1[2] != 0xFFFF) && (data2[2] != 0xFFFF))
+   {
+	   if((data1[2] <= TRAIN_DIST && data2[2] <= TRAIN_DIST) && (data1[2] > TRAIN_DIST_LOW && data2[2] > TRAIN_DIST_LOW))
+	   {
+		   temp_tx_buff[2] = 0x01;  /* Train Detected */
+	   }
+	   else if ((data1[2] >= TRAIN_DIST && data2[2] >= TRAIN_DIST))
+>>>>>>> origin/Devel
 	   {
 		   temp_tx_buff[2] = 0x00;  /* No Train Detected */
 	   }
@@ -63,6 +80,7 @@ void UP_Train_Status(void)
   */
 void DOWN_Train_Status(void)
 {
+<<<<<<< HEAD
 	volatile uint16_t data1[3] = {0xFFFF};
 	volatile uint16_t data2[3] = {0xFFFF};
 
@@ -92,6 +110,32 @@ void DOWN_Train_Status(void)
 		 temp_tx_buff[3] = 0x00;  /* No Train Detected */
 	   }
    }
+=======
+	volatile uint16_t data3[3] = {0xFFFF};
+	volatile uint16_t data4[3] = {0xFFFF};
+
+	for(uint8_t i=0;i<3;i++)
+	{
+	    data3[i] = TF02_Get_Dist(&huart3);
+	    data4[i] = TF02_Get_Dist(&huart4);
+	}
+
+    if((data3[0] == 0xFFFF) && (data3[1] == 0xFFFF) && (data3[2] == 0xFFFF))
+    {
+    	temp_tx_buff[3] = 0x11; /* Sensor Error */
+    }
+    if((data3[2] != 0xFFFF) && (data4[2] != 0xFFFF))
+    {
+ 	   if( (data3[2] <= TRAIN_DIST && data4[2] <= TRAIN_DIST) && (data3[2] > TRAIN_DIST_LOW && data4[2] > TRAIN_DIST_LOW) )
+ 	   {
+ 		   temp_tx_buff[3] = 0x01;  /* Train Detected */
+ 	   }
+ 	   else if (data3[2] >= TRAIN_DIST && data4[2] >= TRAIN_DIST)
+ 	   {
+ 		   temp_tx_buff[3] = 0x00;  /* No Train Detected */
+ 	   }
+    }
+>>>>>>> origin/Devel
 
 }
 
@@ -182,6 +226,7 @@ void Lock_Status(void)
 
 void Bypass_Status(void)
 {
+<<<<<<< HEAD
 	if (HAL_GPIO_ReadPin(BYPASS_SW_NC_GPIO_Port, BYPASS_SW_NC_Pin) == GPIO_PIN_RESET) //bypass EKT Locked
 	{
 		temp_tx_buff[10] = 0x00; //Not Bypassed
@@ -195,6 +240,21 @@ void Bypass_Status(void)
 		else if(HAL_GPIO_ReadPin(LOCK_EKT_NO_GPIO_Port, LOCK_EKT_NO_Pin) == GPIO_PIN_SET) //Locked EKT
 		{
 			temp_tx_buff[10] = 0x0F; //Bypassed
+=======
+	if (HAL_GPIO_ReadPin(BYPASS_SW_NO_GPIO_Port, BYPASS_SW_NO_Pin) == GPIO_PIN_RESET) //bypass EKT Locked
+	{
+		temp_tx_buff[10] = 0x00; //Not Bypassed
+	}
+	else if(HAL_GPIO_ReadPin(BYPASS_SW_NO_GPIO_Port, BYPASS_SW_NO_Pin) == GPIO_PIN_SET) //bypass EKT not Locked
+	{
+		if(HAL_GPIO_ReadPin(LOCK_EKT_NO_GPIO_Port, LOCK_EKT_NO_Pin) == GPIO_PIN_RESET) //unlocked EKT
+		{
+			temp_tx_buff[10] = 0x0F; //Breached
+		}
+		else if(HAL_GPIO_ReadPin(LOCK_EKT_NO_GPIO_Port, LOCK_EKT_NO_Pin) == GPIO_PIN_SET) //Locked EKT
+		{
+			temp_tx_buff[10] = 0x01; //Bypassed
+>>>>>>> origin/Devel
 		}
 
 	}
